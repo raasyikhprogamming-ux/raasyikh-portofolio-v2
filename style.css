@@ -1,0 +1,221 @@
+/* =======================================
+   style.css 
+   Portofolio Ray (Dark Mode, Responsive, Animasi)
+   ======================================= */
+
+/* 1. ANIMASI KEYFRAMES (Definisi Gerakan) */
+@keyframes drawBorder {
+    /* Mulai dari lebar 0 (tidak terlihat) */
+    from { 
+        width: 0; 
+    }
+    /* Selesai di lebar penuh */
+    to { 
+        width: 100%; 
+    }
+}
+
+/* 2. CSS Variables (Warna) */
+:root {
+    --primary-color: #00bcd4; /* Biru/Cyan (Warna Aksen) */
+    --background-dark: #1e1e1e; /* Latar Belakang Utama */
+    --card-dark: #2c2c2c; /* Latar Belakang Section/Kartu */
+    --text-light: #f0f0f0; /* Teks Utama */
+    --text-muted: #aaaaaa; /* Teks Pendukung */
+    --padding-base: 40px;
+}
+
+/* 3. Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    padding-top: 60px; 
+}
+
+/* 4. Gaya Header dan Navigasi */
+header {
+    background-color: var(--card-dark);
+    padding: 15px var(--padding-base);
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* <-- KODE PENTING: Menu Berbaris Menyamping */
+    justify-content: flex-end; 
+}
+
+nav ul li {
+    margin-left: 25px; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* 5. Gaya Section Konten Umum */
+section {
+    padding: 60px var(--padding-base);
+    margin: 40px auto;
+    max-width: 900px;
+    background-color: var(--card-dark);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* 6. Gaya Judul H2 (Sudah Termasuk Animasi) */
+h2 {
+    color: var(--primary-color);
+    font-size: 2em;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    
+    /* Properti untuk Animasi Garis Bawah */
+    display: inline-block; 
+    width: fit-content;    
+    border-bottom: 2px solid var(--primary-color); 
+    animation: drawBorder 1.5s ease-out; 
+}
+
+/* 7. Styling Khusus Hero Section */
+#hero {
+    background-color: var(--background-dark);
+    box-shadow: none; 
+    text-align: center;
+    padding: 100px var(--padding-base);
+}
+
+#hero h1 {
+    font-size: 3.5em;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+#hero p {
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
+
+/* 8. Styling Proyek */
+#projects ul {
+    list-style: none;
+}
+
+#projects li {
+    background-color: var(--background-dark);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border-left: 5px solid var(--primary-color); 
+    transition: transform 0.2s;
+}
+
+#projects li:hover {
+    transform: translateY(-5px); 
+}
+
+#projects li h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+#projects li p {
+    color: var(--text-muted);
+}
+
+/* 9. Styling Kontak dan Link */
+#contact p {
+    font-size: 1.1em;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 10. Styling Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-muted);
+    border-top: 1px solid #3a3a3a;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+
+
+/* =======================================
+   11. MEDIA QUERIES (RESPONSIVE untuk Layar Kecil)
+   ======================================= */
+
+@media (max-width: 600px) {
+    
+    :root {
+        --padding-base: 20px; 
+    }
+
+    body {
+        padding-top: 0; 
+    }
+    
+    section {
+        margin: 20px auto; 
+        padding: 40px var(--padding-base);
+    }
+    
+    header {
+        position: static; 
+        padding: 10px var(--padding-base);
+        box-shadow: none;
+    }
+    
+    nav ul {
+        width: 100%;
+        justify-content: space-around; 
+        padding: 0;
+    }
+
+    nav ul li {
+        margin-left: 0;
+    }
+    
+    #hero {
+        padding: 60px var(--padding-base);
+    }
+
+    #hero h1 {
+        font-size: 2.5em; 
+    }
+
+    #hero p {
+        font-size: 1em;
+    }
+    
+    h2 {
+        font-size: 1.8em; 
+    }
+}
